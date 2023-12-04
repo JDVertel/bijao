@@ -1,0 +1,35 @@
+{
+  "name": "front_bijao",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@firebase/storage": "^0.11.2",
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/vue-fontawesome": "^3.0.3",
+    "bootstrap": "^5.2.3",
+    "bootstrap-vue": "^2.23.1",
+    "datatables.net": "^1.13.4",
+    "datatables.net-bs5": "^1.13.4",
+    "datatables.net-buttons-bs5": "^2.3.6",
+    "datatables.net-responsive-bs5": "^2.4.1",
+    "datatables.net-vue3": "^2.1.0",
+    "firebase": "^10.4.0",
+    "jszip": "^3.10.1",
+    "oh-vue-icons": "^1.0.0-rc3",
+    "pdfmake": "^0.2.7",
+    "vue": "^3.2.47",
+    "vue-router": "^4.1.6",
+    "vue-sweetalert2": "^5.0.5",
+    "vuex": "^4.0.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.0.0",
+    "vite": "^4.1.4"
+  }
+}
