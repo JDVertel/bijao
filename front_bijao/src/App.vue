@@ -32,13 +32,22 @@ export default {
 
             if (querySnapshot.empty) {
                 this.$router.push('/errorpage');
-                return null;
+                this.user= "";
+                this.passw= "";
+                    return null;
 
             } else {
                 let user = querySnapshot.docs[0].data();
                 this.rol = querySnapshot.docs[0].data().rol
-                this.$router.push('/login');
-                return user;
+                this.$router.push({
+                    path: '/login',
+                    query: {
+                        parametro: this.rol
+                    }
+                });
+                this.user= "";
+                this.passw= "";
+                    return user;
 
             }
 
@@ -64,7 +73,7 @@ export default {
             </button>
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu AppBiajo</h5>
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><i class="fa fa-bars" aria-hidden="true"></i> Menu</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
@@ -99,7 +108,6 @@ export default {
                             </div>
 
                             <form class="d-flex mt-3 mb-3">
-
                                 <input class="form-control me-2" type="number" placeholder="Usuario" v-model="user">
                                 <input class="form-control me-2" type="password" placeholder="Contraseña" v-model="passw">
                                 <button class="btn btn-outline-success " data-bs-dismiss="offcanvas" type="button" @click="ingresar(this.user, this.passw)">Entrar</button>

@@ -1,13 +1,12 @@
 <template>
 <div>
 
-
     <div>
 
         <div v-if="rol == 'gestor'">
             <Gestor />
         </div>
-    
+
         <div v-if="rol == 'tamalero'">
             <Tamalero />
         </div>
@@ -15,7 +14,7 @@
         <div v-if="rol == 'admin'">
             <Admin />
         </div>
-     
+
     </div>
 </div>
 </template>
@@ -40,19 +39,20 @@ export default {
         psw: "",
         rol: "",
     }),
+
     methods: {
-   
-       /*  async login(docu, psw) {
-    
+
+        /*  async login(docu, psw) {
+
             const q = query(collection(bd, "usuarios"), where("documento", "==", docu), where("passw", "==", psw), where("estado", "==", true));
             const querySnapshot = await getDocs(q);
 
             if (querySnapshot.empty) {
-         
+
                 return null;
             } else {
                 let user = querySnapshot.docs[0].data();
-        
+
                 this.rol = querySnapshot.docs[0].data().rol
                 return user;
             }
@@ -65,6 +65,10 @@ export default {
         Gestor,
         Tamalero,
         Admin,
+    },
+    mounted() {
+        this.rol = this.$route.query.parametro;
+        console.log(this.$route.query.parametro);
     }
 }
 </script>

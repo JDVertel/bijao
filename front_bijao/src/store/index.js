@@ -4,7 +4,8 @@ export default createStore({
   state: {
     carrito: [],
     total: "",
-   
+    rol: "",
+
   },
 
   mutations: {
@@ -20,7 +21,7 @@ export default createStore({
         const conteo = state.carrito.find((i) => i.nombre === nom);
         conteo.cant++;
         conteo.subtotal = state.item.precio * state.item.cant;
-      
+
       } else {
         /*      // console.log("no existe"); */
         state.item.cant = 1;
@@ -29,19 +30,19 @@ export default createStore({
         /* almacena en el array carrito cada uno de los items */
         state.carrito = [state.item, ...state.carrito];
         /*  */
-   
-     /*    state.item.info=state.info; */
+
+        /*    state.item.info=state.info; */
       }
       state.total = state.carrito.reduce(
         (contador, elemento) => contador + elemento.subtotal,
         0
       )
-  /*     state.info="informacion"; */
+      /*     state.info="informacion"; */
     },
     setVaciar(state) {
-      state.carrito =[]
-      state.total=''
-    
+      state.carrito = []
+      state.total = ''
+
     },
     /*--------------------------------------------------------------------  */
     deleteItem(state, itemEdit) {
@@ -68,6 +69,10 @@ export default createStore({
         0
       );
     },
+
+    activaRol(rol) {
+      state.rol = rol
+    }
   },
 
   /* ---------------------------------------------------------------- */
@@ -83,6 +88,9 @@ export default createStore({
     deleteCar(store) {
       store.commit('setVaciar')
       // console.log ("vaciando store");
+    },
+    activaRol(rol) {
+      rol.commit('rolActive')
     }
 
   },

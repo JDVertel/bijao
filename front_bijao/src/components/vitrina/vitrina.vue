@@ -1,37 +1,27 @@
 <template>
 <div class="container principal">
+    <h6 class="display-6">{{ this.eventovigente }}</h6>
+    <table class="table table-sm table-hover ">
+        <thead>
+            <tr>
+                <th>Fecha inicio</th>
+                <th>Fecha fin</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="eventos in listEvents" v-bind:key="eventos.id">
+                <td>{{ eventos.fechaini }}</td>
+                <td>{{ eventos.fechafin }}</td>
 
-    <h6>Evento Actual</h6>
-    <p> {{ this.eventovigente }}</p>
-    <br />
-    <div class="container">
-        <table class="table table-sm table-hover ">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Fecha inicio</th>
-                    <th>Fecha fin</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr v-for="eventos in listEvents" v-bind:key="eventos.id">
-                    <td>{{ eventos.nombre }}</td>
-                    <td>{{ eventos.fechaini }}</td>
-                    <td>{{ eventos.fechafin }}</td>
-
-                </tr>
-
-            </tbody>
-
-        </table>
-    </div>
+            </tr>
+        </tbody>
+    </table>
 
     <!-- ----------------------------------------------------------------------------- -->
     <div class="row">
         <div class="col-6 col-sm-4 col-md-3 col-lg-2 card-deck" v-for="producto in ProdVitrina" :key="producto.id">
 
-            <div class="card shadowB">
+            <div class="card shadowB claseTrasnsf">
                 <h5 class="card-title">{{ producto.nombre }}</h5>
                 <img class="card-img-top" :src="`${producto.url}`" alt="Card image cap">
                 <div class="card-body">
