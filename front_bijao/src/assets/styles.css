@@ -365,14 +365,14 @@ button {
 }
 
 hr {
-    margin: 5px!important;
+    margin: 5px !important;
 }
 
 body {
     font-family: "Poppins", sans-serif;
     font-size: 0.8rem !important;
-    padding: 1px!important;
-    margin: 1px!important;
+    padding: 1px !important;
+    margin: 1px !important;
 }
 
 .redondo {
@@ -381,8 +381,8 @@ body {
     align-items: center;
     justify-content: center;
     align-content: center;
-    width: 30px!important;
-    height: 30px!important;
+    width: 30px !important;
+    height: 30px !important;
     border-radius: 50% !important;
     box-shadow: -1px -1px 5px #293f08;
 }
@@ -393,18 +393,18 @@ body {
     align-items: center;
     justify-content: center;
     align-content: center;
-    width: 23px!important;
-    height: 23px!important;
+    width: 23px !important;
+    height: 23px !important;
     border-radius: 50% !important;
-    padding: 0px!important;
-    margin:2px!important;
+    padding: 0px !important;
+    margin: 2px !important;
     box-shadow: -1px -1px 5px #293f08;
 }
 
 
-.bsinbordes{
-    padding:1px!important;
-    margin:1px!important;
+.bsinbordes {
+    padding: 1px !important;
+    margin: 1px !important;
 }
 
 .transparente {
@@ -424,32 +424,37 @@ body {
 #icon {
     width: 60%;
 }
-nav.navbar.bg{
+
+nav.navbar.bg {
     background-color: #293f08;
 }
-.applicacion{
+
+.applicacion {
     margin-top: 70px;
-    padding: 1px!important;
+ 
 }
+
 .principal {
     padding: 0px !important;
     margin: 0px !important;
 }
+
 .carrusel {
     height: 300px;
 }
-.col{
-    padding: 1px!important;
+
+.col {
+    padding: 1px !important;
 }
 
-.shadowB{
+.shadowB {
     box-shadow: -2px -1px 10px #293f08;
 }
 
 .accordion-button {
     background-color: #84ad09 !important;
     padding: 0px !important;
-    margin: 0px!important;
+    margin: 0px !important;
     font-size: 0.7rem !important;
     text-shadow: 1px 1px 1px black;
 }
@@ -458,12 +463,27 @@ div.accordion-body {
     background-color: #f3ffc1 !important;
     padding: 6px !important;
 }
+div.offcanvas-body{
+    background: linear-gradient(#ffffff, #DBEE61);
+}
 
-.coloreadonavbar{
+.coloreadonavbar {
     background: linear-gradient(#ffffff, #DBEE61);
 
 }
 
-.div.offcancas{
-    background: linear-gradient(to left, rgb(255, 255, 255),#84ad09);  
+.div.offcancas {
+    background: linear-gradient(to left, rgb(255, 255, 255), #84ad09);
+}
+
+a {
+    text-decoration: none !important;
+    padding: 3px;
+    color: #293f08 !important;
+    font-size: 1.1em!important;
+    
+}
+.tab-pane.active.show{
+    background-color: #f2ffa5;
+    padding: 8px!important;
 }

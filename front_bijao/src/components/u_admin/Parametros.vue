@@ -358,9 +358,9 @@
                             </table>
                         </div>
                         <div class="tab-pane" id="editEvent" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-                            <div class="container">
+                           
                                 <p><small>Crear nuevo evento</small></p>
-                                <p><small>Editar evento</small></p>
+                         
                                 <form action="" class="row" ref="eventosForm">
                                     <div class="col-12">
                                         <input type="text" class="form-control form-control-sm" id="producnombre" placeholder="Nombre" v-model="e_nombre" />
@@ -382,7 +382,7 @@
                                     <br>
 
                                 </form>
-                            </div>
+                      
                         </div>
                     </div>
 

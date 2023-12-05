@@ -70,26 +70,34 @@ export default {
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item" data-bs-dismiss="offcanvas">
-                            <a class="nav-link active" aria-current="page" href="#">
+
+                            <a class="nav-link active" aria-current="page">
                                 <RouterLink to="/"><i class="fa fa-home" aria-hidden="true"></i> Home</RouterLink>
                             </a>
+
                         </li>
                         <li class="nav-item" data-bs-dismiss="offcanvas">
-                            <a class="nav-link active" aria-current="page" href="#">
+                            <a class="nav-link" aria-current="page">
                                 <RouterLink to="/acercade"><i class="fa fa-info-circle" aria-hidden="true"></i> Acerca de AppBijao</RouterLink>
                             </a>
                         </li>
                         <li class="nav-item" data-bs-dismiss="offcanvas">
-                            <a class="nav-link active" aria-current="page" href="#">
+                            <a class="nav-link" aria-current="page">
                                 <RouterLink to="/registro"><i class="fa fa-user-circle" aria-hidden="true"></i> Registro</RouterLink>
                             </a>
                         </li>
                     </ul>
+                    <br>
                     <div class="card">
                         <div class="card-header">
-                            <h6><i class="fa fa-lock" aria-hidden="true"></i> Ingreso al Sistema</h6>
+                            <img alt="Vue logo" class="logo" src="@/components/images/logo_bijao.png" height="43" />
+
                         </div>
                         <div class="card-body">
+                            <div style="padding-left: 10px;">
+                                <h6> <i class="fa fa-lock" aria-hidden="true"></i> Ingreso al Sistema</h6>
+                            </div>
+
                             <form class="d-flex mt-3 mb-3">
 
                                 <input class="form-control me-2" type="number" placeholder="Usuario" v-model="user">

@@ -172,17 +172,16 @@ export default {
                 </h2>
                 <div id="flush-collapseTwo" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body carta">
-                        <!-- aqui se requiere una consulta -->
-                        <div class="container">
+                   
+                        
                             <!--  -->
-                            <div class="container">
+                         
                                 <vitrina />
-                            </div>
+                         
 
                             <!--  -->
                             <hr />
 
-                        </div>
                     </div>
                 </div>
             </div>

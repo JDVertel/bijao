@@ -33,13 +33,14 @@
         <div class="tab-content">
             <div class="tab-pane active" id="pedidos" role="tabpanel" aria-labelledby="pedidos-tab" tabindex="0">
 
-                <br>
-                <p>
+          
+
+                <p> 
                     Listado de domicilios reportados que deben ser verificados para un
                     posterior aprovionamiento y envio
                 </p>
 
-                <div class="container">
+               
                     <table class="table table-sm table-hover">
                         <thead>
                             <tr>
@@ -76,7 +77,7 @@
 
                         </tbody>
                     </table>
-                </div>
+               
 
                 ver pedidos cancelados
             </div>
@@ -87,7 +88,6 @@
                     listado de domicilios confirmados listos para aprovisionar y enviar
                 </p>
 
-                <div class="container">
                     <table class="table table-sm table-hover">
                         <thead>
                             <tr>
@@ -115,7 +115,7 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>
+               
 
             </div>
             <!-- -------------------------------------------------------------------------------------------------------------- -->
@@ -124,7 +124,7 @@
                 <p>listado de pedidos listos para entregar a domiciliario</p>
                 ver historial de envios
 
-                <div class="container">
+             
                     <table class="table table-sm table-hover">
                         <thead>
                             <tr>
@@ -153,14 +153,14 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>
+               
             </div>
             <!-- ---------------------------------------------------------------------------------------------------------------- -->
             <div class="tab-pane" id="historial" role="tabpanel" aria-labelledby="historial-tab" tabindex="0">
 
                 <p>historial de envios a domicilio</p>
 
-                <div class="container">
+             
                     <table class="table table-sm table-hover">
                         <thead>
                             <tr>
@@ -181,7 +181,7 @@
                             </tr>
                         </tbody>
                     </table>
-                </div>
+             
             </div>
         </div>
         <br>
