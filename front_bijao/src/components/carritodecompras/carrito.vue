@@ -2,7 +2,7 @@
   <div class="container carrito">
     <br />
     <div class="row" style="background-color: #84ad09">
-      <h6 style="color: white">Pedido ${{ $store.state.total }}</h6>
+      <h6 style="color: white">Valor de su Pedido <strong> ${{ $store.state.total }}</strong></h6>
     </div>
 
     <div class="table-responsive-sm">
@@ -24,7 +24,7 @@
             <td>{{ item.subtotal }}</td>
             <td>
               <button class="btn btn-danger btn-sm redondo" @click="DeleteItem(item)">
-                -
+                <i class="fa fa-minus-circle" aria-hidden="true"></i>
               </button>
             </td>
           </tr>

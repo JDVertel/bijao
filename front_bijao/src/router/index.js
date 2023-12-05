@@ -4,9 +4,10 @@ import { createRouter, createWebHistory } from "vue-router";
 import informes from "../views/Informes.vue";
 import HomeView from "../views/HomeView.vue";
 import dashboard from "../views/Dashboard.vue";
-
+import acercade from "../views/acercade.vue";
 import ordenes from "../views/Ordenes.vue";
-
+import registro from "../views/registro.vue";
+import errorpage from "../views/errorpage.vue";
 
 /* components */
 
@@ -40,11 +41,20 @@ const router = createRouter({
       component: login,
     },
     {
+      path: "/acercade",
+      name: "acercade",
+      component: acercade,
+    },
+    {
+      path: "/errorpage",
+      name: "errorpage",
+      component: errorpage,
+    },
+    {
       path: "/dashboard",
       name: "dashboard",
       component: dashboard,
     },
-
 
     {
       path: "/ordenes",
@@ -77,6 +87,12 @@ const router = createRouter({
       path: "/tamalero",
       name: "tamalero",
       component: tamalero,
+    },
+     
+    {
+      path: "/registro",
+      name: "registro",
+      component: registro,
     },
   ],
 });
