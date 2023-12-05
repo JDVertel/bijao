@@ -56,9 +56,9 @@ export default {
 
     <!-- navbar -->
 
-    <nav class="navbar bg-body-tertiary fixed-top">
+    <nav class="navbar bg-body-tertiary fixed-top coloreadonavbar">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img alt="Vue logo" class="logo" src="@/components/images/logo_bijao.png" height="50" /></a>
+            <a class="navbar-brand" href="#"><img alt="Vue logo" class="logo" src="@/components/images/logo_bijao.png" height="43" /></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -85,16 +85,23 @@ export default {
                             </a>
                         </li>
                     </ul>
-                    <hr>
-                    <ul>
-                        <h6>Ingreso al Sistema</h6>
-                    </ul>
-                    <form class="d-flex mt-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6><i class="fa fa-lock" aria-hidden="true"></i> Ingreso al Sistema</h6>
+                        </div>
+                        <div class="card-body">
+                            <form class="d-flex mt-3 mb-3">
 
-                        <input class="form-control me-2" type="number" placeholder="Usuario" v-model="user">
-                        <input class="form-control me-2" type="password" placeholder="Contraseña" v-model="passw">
-                        <button class="btn btn-outline-success " data-bs-dismiss="offcanvas" type="button" @click="ingresar(this.user, this.passw)">Entrar</button>
-                    </form>
+                                <input class="form-control me-2" type="number" placeholder="Usuario" v-model="user">
+                                <input class="form-control me-2" type="password" placeholder="Contraseña" v-model="passw">
+                                <button class="btn btn-outline-success " data-bs-dismiss="offcanvas" type="button" @click="ingresar(this.user, this.passw)">Entrar</button>
+                            </form>
+                        </div>
+                    </div>
+                    <ul>
+
+                    </ul>
+
                 </div>
             </div>
         </div>

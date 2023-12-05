@@ -44,7 +44,9 @@
                 </div>
 
             </div>
-          
+            
+            <router-link to="/"><button class="btn btn-success">Volver</button></router-link>   
+         
             <div class="row">
                 <button :disabled="botonDeshabilitado" type="submit" class="btn btn-success btn-sm " style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" v-if="(P_cel && P_dir && P_nom)!=''" @click="GuardarPedido"><i class="fa fa-cart-plus" aria-hidden="true"></i> <strong>Realizar pedido</strong> </button>
 

@@ -5,7 +5,7 @@
     <p> {{ this.eventovigente }}</p>
     <br />
     <div class="container">
-        <table class="table table-sm table-hover">
+        <table class="table table-sm table-hover ">
             <thead>
                 <tr>
                     <th>Nombre</th>
@@ -31,7 +31,7 @@
     <div class="row">
         <div class="col-6 col-sm-4 col-md-3 col-lg-2 card-deck" v-for="producto in ProdVitrina" :key="producto.id">
 
-            <div class="card">
+            <div class="card shadowB">
                 <h5 class="card-title">{{ producto.nombre }}</h5>
                 <img class="card-img-top" :src="`${producto.url}`" alt="Card image cap">
                 <div class="card-body">
@@ -41,7 +41,7 @@
                         <div class="col-6">
                             <p class="card-price">${{ producto.precio }}</p>
                         </div>
-                        <div class="col-6" style="padding:0px"><button class="btn btn-success btn-sm redondo" @click="addItem(producto)">
+                        <div class="col-6" style="padding:0px"><button class="btn btn-success btn-sm redondo " @click="addItem(producto)">
                                 <i class="fa fa-cart-plus" aria-hidden="true"></i>
                             </button></div>
                     </div>

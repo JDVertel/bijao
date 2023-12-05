@@ -100,13 +100,7 @@ h2.active {
 
 
 
-.accordion-button {
-    background-color: #84ad09 !important;
-    padding: 5px !important;
-    font-size: 0.7rem !important;
-    color: aliceblue !important;
-    text-shadow: 1px 1px 1px black;
-}
+
 
 div.accordion-body {
     background-color: #f3ffc1 !important;
@@ -390,7 +384,23 @@ body {
     width: 30px!important;
     height: 30px!important;
     border-radius: 50% !important;
+    box-shadow: -1px -1px 5px #293f08;
 }
+
+.redondomini {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 23px!important;
+    height: 23px!important;
+    border-radius: 50% !important;
+    padding: 0px!important;
+    margin:2px!important;
+    box-shadow: -1px -1px 5px #293f08;
+}
+
 
 .bsinbordes{
     padding:1px!important;
@@ -419,6 +429,7 @@ nav.navbar.bg{
 }
 .applicacion{
     margin-top: 70px;
+    padding: 1px!important;
 }
 .principal {
     padding: 0px !important;
@@ -431,4 +442,28 @@ nav.navbar.bg{
     padding: 1px!important;
 }
 
+.shadowB{
+    box-shadow: -2px -1px 10px #293f08;
+}
 
+.accordion-button {
+    background-color: #84ad09 !important;
+    padding: 0px !important;
+    margin: 0px!important;
+    font-size: 0.7rem !important;
+    text-shadow: 1px 1px 1px black;
+}
+
+div.accordion-body {
+    background-color: #f3ffc1 !important;
+    padding: 6px !important;
+}
+
+.coloreadonavbar{
+    background: linear-gradient(#ffffff, #DBEE61);
+
+}
+
+.div.offcancas{
+    background: linear-gradient(to left, rgb(255, 255, 255),#84ad09);  
+}

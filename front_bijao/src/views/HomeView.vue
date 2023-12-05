@@ -161,7 +161,6 @@ export default {
                             vulnerables a múltiples situaciones socio-culturales.
                         </p>
 
-                        <router-link to="/">Home</router-link>
                     </div>
                 </div>
             </div>
