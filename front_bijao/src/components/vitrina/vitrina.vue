@@ -38,13 +38,12 @@
                     <p class="card-text">{{ producto.descripcion }}</p>
                     <hr>
                     <div class="row">
-                        <div class="col-4"><button class="btn btn-danger btn-sm m-3" @click="addItem(producto)">
-                                <i class="fa fa-cart-plus" aria-hidden="true"></i>
-                            </button></div>
-                        <div class="col-8">
+                        <div class="col-6">
                             <p class="card-price">${{ producto.precio }}</p>
                         </div>
-
+                        <div class="col-6" style="padding:0px"><button class="btn btn-danger btn-sm redondo" @click="addItem(producto)">
+                                <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                            </button></div>
                     </div>
 
                 </div>
@@ -108,7 +107,7 @@ export default {
             prod: {},
             listaP: [],
             datosfact: [],
-            ProdVitrina:[],
+            ProdVitrina: [],
 
         };
     },
@@ -160,7 +159,7 @@ export default {
             onSnapshot(Inv, (snapshot) => {
                 snapshot.docs.map((doc) => {
                     /*  // console.log(doc.data().nombre) */
-                    this.listaP=[];
+                    this.listaP = [];
                     this.leerid(doc.data().IDproducto).then(
                         (info) => {
                             if (info != {}) {
@@ -175,7 +174,7 @@ export default {
                                         eventovigente: this.eventovigente,
                                     });
                                     this.ProdVitrina = this.listaP;
-                                
+
                                     /*     // console.log("info de list", this.listaP) */
                                 });
                             }
@@ -210,99 +209,3 @@ export default {
 
 }
 </script>
-
-<style scoped>
-.transparente {
-    padding: 2px;
-    font-size: 0.7rem;
-    background-color: transparent !important;
-    border-color: transparent !important;
-}
-
-h5 {
-    font-size: 0.8rem !important;
-}
-
-img.img-fluid {
-    margin-top: 5px;
-    object-fit: cover !important;
-    height: 100px;
-    width: 100px;
-}
-
-.col-8 {
-    display: flex;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-    padding: 2px !important;
-}
-
-.principal {
-    padding: 0px !important;
-    margin: 0px !important;
-}
-
-.center {
-    display: flex;
-    align-content: center !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-
-.card {
-    margin-bottom: 5px;
-    background: linear-gradient(#ffffff, #DBEE61);
-
-    border-style: solid;
-    border-width: thin;
-    border-color: #485B0C;
-}
-
-.card-img-top {
-    width: 100%;
-    height: 80px;
-    padding: 2px;
-
-}
-
-div.card-body {
-    padding: 1px !important;
-
-}
-
-button {
-    border-radius: 50%;
-    margin: 3px !important;
-
-}
-
-.card-title {
-    font-size: 0.9rem !important;
-
-}
-
-.card-text {
-    font-size: 0.6rem !important;
-    line-height: 14px;
-    color: #293f08;
-    margin: 3px !important;
-
-}
-
-.card-price {
-    height: 30px;
-    color: #485B0C;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    margin: 3px !important;
-
-}
-
-hr {
-    margin: 10px;
-}
-
-/*--------------------------------------------------------------------------------------------------------------------------------------*/
-</style>

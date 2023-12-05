@@ -1,0 +1,432 @@
+/*
+
+header {
+    line-height: 0.5;
+    max-height: 100vh;
+}
+
+.logo {
+    display: block;
+    margin: 0 auto;
+
+}
+
+nav {
+    width: 100%;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 2rem;
+    background: transparent;
+}
+
+
+
+nav a {
+    display: inline-block;
+    padding: 0 1rem;
+    border-left: 1px solid var(--color-border);
+}
+
+
+
+@media (min-width: 1024px) {
+    header {
+        display: flex;
+        place-items: center;
+        padding-right: calc(var(--section-gap) / 2);
+    }
+
+
+    header .wrapper {
+        display: flex;
+        place-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    nav {
+        text-align: left;
+        margin-left: -1rem;
+        font-size: 1rem;
+
+        padding: 1rem 0;
+        margin-top: 1rem;
+    }
+
+}
+
+.carrito {
+    background-color: #dbee61;
+    font-size: 0.7rem !important;
+    border-radius: 5px !important;
+}
+
+.btn {
+    margin: 0px !important;
+    border: none;
+    text-align: center;
+    border-radius: 50% !important;
+    height: 20px !important;
+    width: 20px !important;
+    padding: 1px !important;
+    font-size: 0.7rem !important;
+}
+
+table {
+    text-align: center;
+    border-color: #84ad09 !important;}
+
+
+
+
+a {
+    color: #92badd;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+
+
+
+h2.inactive {
+    color: #cccccc;
+}
+
+h2.active {
+    color: #0d0d0d;
+    border-bottom: 2px solid #5fbae9;
+}
+
+
+
+
+.accordion-button {
+    background-color: #84ad09 !important;
+    padding: 5px !important;
+    font-size: 0.7rem !important;
+    color: aliceblue !important;
+    text-shadow: 1px 1px 1px black;
+}
+
+div.accordion-body {
+    background-color: #f3ffc1 !important;
+    padding: 6px !important;
+
+}
+
+table {
+    border-color: #84ad09 !important;
+}
+
+
+#accordionAdmin {
+    margin-bottom: 40px !important;
+}
+
+.gestprod {
+    background-color: #d8e0aa;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.titular {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between
+}
+
+.subtitle {
+    max-width: 200px;
+    overflow: hidden;
+
+}
+
+img {
+    max-width: 100px;
+    max-height: 100px;
+    margin: 10px
+}
+
+
+.btn_mini {
+    --bs-btn-padding-y: 0.25rem;
+    --bs-btn-padding-x: 0.5rem;
+    --bs-btn-font-size: 0.75rem;
+}
+.imagen {
+    padding: 0px !important;
+}
+
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+
+}
+
+thead th:nth-child(1) {
+    width: 27%;
+}
+
+thead th:nth-child(2) {
+    width: 33%;
+}
+
+thead th:nth-child(3) {
+    width: 25%;
+}
+
+thead th:nth-child(4) {
+    width: 15%;
+}
+
+th,
+td {
+    padding: 20px;
+}
+
+
+
+.aplicacion {
+    background-color: #f3ffc1 !important;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: thin;
+    border-color: #485B0C;
+  
+  }
+
+h5 {
+    font-size: 0.8rem !important;
+}
+
+img.img-fluid {
+    margin-top: 5px;
+    object-fit: cover !important;
+    height: 100px;
+    width: 100px;
+}
+
+.col-8 {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    padding: 2px !important;
+}
+
+
+
+
+
+.card-img-top {
+    width: 100%;
+    height: 80px;
+    padding: 2px;
+
+}
+
+
+
+
+
+
+.centrado {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.apk {
+    font-size: 0.9em;
+    min-height: 100vh;
+    width: 100%;
+    padding-bottom: 1em;
+}
+
+.accordion-button {
+    background-color: #84ad09 !important;
+    padding: 5px !important;
+    font-size: 0.7rem !important;
+    color: aliceblue !important;
+    text-shadow: 1px 1px 1px black;
+}
+
+div.accordion-body {
+    background-color: #f3ffc1 !important;
+    padding: 6px !important;
+}
+
+table {
+    border-color: #84ad09 !important;
+}
+
+  .galeria {
+    background-color: #f3ffc1 !important;
+    padding: 0px !important;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+
+}
+
+*/
+
+
+
+/* BACKGROUND*/
+.config {
+    background-image: url("./src/images/1239.jpg");
+    background-size: cover;
+}
+
+
+.accordion-button {
+    background-color: #84ad09 !important;
+    padding: 5px !important;
+    font-size: 0.7rem !important;
+    color: aliceblue !important;
+    text-shadow: 1px 1px 1px black;
+}
+
+div.accordion-body {
+    background-color: #f3ffc1 !important;
+    padding: 6px !important;
+}
+
+table {
+    border-color: #84ad09 !important;
+}
+
+.galeria {
+    background-color: #f3ffc1 !important;
+    padding: 0px !important;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.card-img-top {
+    width: 100%;
+    height: 80px;
+    padding: 2px;
+
+}
+
+div.card-body {
+    padding: 1px !important;
+
+}
+
+.card {
+    margin-bottom: 5px;
+    background: linear-gradient(#ffffff, #DBEE61);
+    border-style: solid;
+    border-width: thin;
+    border-color: #485B0C;
+}
+
+button {
+    border-radius: 50%;
+    margin: 3px !important;
+
+}
+
+.card-title {
+    font-size: 0.9rem !important;
+
+
+}
+
+.card-text {
+    font-size: 0.6rem !important;
+    line-height: 14px;
+    color: #293f08;
+    margin: 3px !important;
+
+}
+
+.card-price {
+    height: 30px;
+    color: #485B0C;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    margin: 3px !important;
+
+}
+
+hr {
+    margin: 5px!important;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    font-size: 0.8rem !important;
+    padding: 1px!important;
+    margin: 1px!important;
+}
+
+.redondo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 30px!important;
+    height: 30px!important;
+    border-radius: 50% !important;
+}
+
+.bsinbordes{
+    padding:1px!important;
+    margin:1px!important;
+}
+
+.transparente {
+    padding: 2px;
+    font-size: 0.7rem;
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+
+.center {
+    display: flex;
+    align-content: center !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+#icon {
+    width: 60%;
+}
+nav.navbar.bg{
+    background-color: #293f08;
+}
+.applicacion{
+    margin-top: 70px;
+}
+.principal {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+.carrusel {
+    height: 300px;
+}
+.col{
+    padding: 1px!important;
+}

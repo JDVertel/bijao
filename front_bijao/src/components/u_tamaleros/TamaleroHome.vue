@@ -109,23 +109,4 @@ export default {
 </script>
 
 
-<style>
-.aplicacion {
-  background-color: #f3ffc1 !important;
-  border-radius: 5px;
-  border-style: solid;
-  border-width: thin;
-  border-color: #485B0C;
 
-}
-.redondo {
-  display: block;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%!important;
-  text-align: center;
-  padding: 1px;
-  cursor: pointer;
-  margin: 1px;
-}
-</style>

@@ -14,26 +14,22 @@ export default {
             const añoActual = fecha.getFullYear();
             this.fechaActual = diaActual + '/' + mesActual + '/' + añoActual;
             /*  // console.log(diaActual + '/' + mesActual + '/' + añoActual); */
-/*             // console.log(this.fechaActual); */
+            /*             // console.log(this.fechaActual); */
         }
     },
- 
 
-  created() {
-    
+    created() {
+
         this.diahoy()
     },
-  };
-
+};
 </script>
 
 <template>
-<div class="apk">
-    <br>
+<div>
 
-  
 
-    <div class="container">
+    <div class="container applicacion">
         <div class="row">
             <div class="col-12 col-md-6 central">
                 <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
@@ -86,6 +82,7 @@ export default {
         </div>
     </div>
     <br>
+
     <div class="card text-center transparente">
         <!--  -->
         <div class="accordion accordion-flush" id="accordionFlushExample">
@@ -193,59 +190,6 @@ export default {
 
         </div>
 
-        <!--  -->
     </div>
 </div>
 </template>
-
-<style scoped>
-.carrusel {
-    height: 300px;
-}
-
-.centrado {
-    display: flex;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-}
-
-.apk {
-    font-size: 0.9em;
-    min-height: 100vh;
-    width: 100%;
-    padding-bottom: 1em;
-}
-
-.accordion-button {
-    background-color: #84ad09 !important;
-    padding: 5px !important;
-    font-size: 0.7rem !important;
-    color: aliceblue !important;
-    text-shadow: 1px 1px 1px black;
-}
-
-div.accordion-body {
-    background-color: #f3ffc1 !important;
-    padding: 6px !important;
-}
-
-table {
-    border-color: #84ad09 !important;
-}
-
-.galeria {
-    background-color: #f3ffc1 !important;
-    padding: 0px !important;
-}
-
-.info {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-
-}
-</style>
-

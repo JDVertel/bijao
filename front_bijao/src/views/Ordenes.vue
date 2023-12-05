@@ -1,5 +1,5 @@
 <template>
-<div class="container" v-if="$store.state.total">
+<div class="container applicacion" v-if="$store.state.total">
 
     <div class="app">
         <CarritodeCompras />
@@ -184,5 +184,3 @@ export default {
 }
 </script>
 
-<style>
-</style>

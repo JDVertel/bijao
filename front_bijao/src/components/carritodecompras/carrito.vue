@@ -23,7 +23,7 @@
             <td>${{ item.precio }}</td>
             <td>{{ item.subtotal }}</td>
             <td>
-              <button class="btn btn-danger btn-sm" @click="DeleteItem(item)">
+              <button class="btn btn-danger btn-sm redondo" @click="DeleteItem(item)">
                 -
               </button>
             </td>
@@ -49,23 +49,5 @@ export default {
 };
 </script>
 <style scoped>
-.carrito {
-  background-color: #dbee61;
-  font-size: 0.7rem !important;
-  border-radius: 5px !important;
-}
-.btn {
-  margin: 0px !important;
-  border: none;
-  text-align: center;
-  border-radius: 50% !important;
-  height: 20px !important;
-  width: 20px !important;
-  padding: 1px !important;
-  font-size: 0.7rem !important;
-}
-table {
-  text-align: center;
-  border-color: #84ad09 !important ;
-}
+
 </style>

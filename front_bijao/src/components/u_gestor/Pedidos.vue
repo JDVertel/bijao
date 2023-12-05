@@ -6,22 +6,22 @@
     <div class="container aplicacion">
         <br>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item" role="presentation" >
+            <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="pedidos-tab" data-bs-toggle="tab" data-bs-target="#pedidos" type="button" role="tab" aria-controls="pedidos" aria-selected="true">
                     Pedidos
                 </button>
             </li>
-            <li class="nav-item" role="presentation" >
+            <li class="nav-item" role="presentation">
                 <button class="nav-link" id="ordenes-tab" data-bs-toggle="tab" data-bs-target="#ordenes" type="button" role="tab" aria-controls="ordenes" aria-selected="false">
                     Ordenes
                 </button>
             </li>
-            <li class="nav-item" role="presentation" >
+            <li class="nav-item" role="presentation">
                 <button class="nav-link" id="envios-tab" data-bs-toggle="tab" data-bs-target="#envios" type="button" role="tab" aria-controls="envios" aria-selected="false">
                     Envios
                 </button>
             </li>
-            <li class="nav-item" role="presentation" >
+            <li class="nav-item" role="presentation">
                 <button class="nav-link" id="envios-tab" data-bs-toggle="tab" data-bs-target="#historial" type="button" role="tab" aria-controls="historial" aria-selected="false">
                     Historial
                 </button>
@@ -31,7 +31,7 @@
         <!-- -------------------------------------------------------------Tab panes -->
 
         <div class="tab-content">
-            <div class="tab-pane active" id="pedidos" role="tabpanel" aria-labelledby="pedidos-tab" tabindex="0" >
+            <div class="tab-pane active" id="pedidos" role="tabpanel" aria-labelledby="pedidos-tab" tabindex="0">
 
                 <br>
                 <p>
@@ -60,8 +60,8 @@
                                 <td>{{Pedido.direccion}}</td>
                                 <!-- data-bs-toggle="modal" data-bs-target="#modalPedidos"  -->
                                 <td>
+                                    <div class="row">
 
-                                    <div class="row d-flex flex-row justify-content-center alig-items-center">
                                         <button type="button" class="btn btn-danger btn-sm redondo" @click="DeleteOrden(Pedido.id)">
                                             <i class="fa fa-times" aria-hidden="true"></i>
                                         </button>
@@ -81,7 +81,7 @@
                 ver pedidos cancelados
             </div>
             <!-- ------------------------------------------------------------------------------------------------------------ -->
-            <div class="tab-pane" id="ordenes" role="tabpanel" aria-labelledby="ordenes-tab" tabindex="0" >
+            <div class="tab-pane" id="ordenes" role="tabpanel" aria-labelledby="ordenes-tab" tabindex="0">
 
                 <p>
                     listado de domicilios confirmados listos para aprovisionar y enviar
@@ -107,7 +107,6 @@
 
                                 <td>
 
-                                    <!--     <button type="button" class="btn btn-warning btn-sm">Middle</button> -->
                                     <button type="button" class="btn btn-success btn-sm redondo" @click="UpdatetoEnvio(Orden.id)">
                                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                     </button>
@@ -120,7 +119,7 @@
 
             </div>
             <!-- -------------------------------------------------------------------------------------------------------------- -->
-            <div class="tab-pane" id="envios" role="tabpanel" aria-labelledby="envios-tab" tabindex="0" >
+            <div class="tab-pane" id="envios" role="tabpanel" aria-labelledby="envios-tab" tabindex="0">
 
                 <p>listado de pedidos listos para entregar a domiciliario</p>
                 ver historial de envios
@@ -157,10 +156,9 @@
                 </div>
             </div>
             <!-- ---------------------------------------------------------------------------------------------------------------- -->
-            <div class="tab-pane" id="historial" role="tabpanel" aria-labelledby="historial-tab" tabindex="0" >
+            <div class="tab-pane" id="historial" role="tabpanel" aria-labelledby="historial-tab" tabindex="0">
 
                 <p>historial de envios a domicilio</p>
-      
 
                 <div class="container">
                     <table class="table table-sm table-hover">
@@ -169,7 +167,7 @@
                                 <th>Nombre</th>
                                 <th>Pedido</th>
                                 <th>Direccion</th>
-                              
+
                             </tr>
                         </thead>
                         <tbody>
@@ -180,7 +178,6 @@
                                 </td>
                                 <td>{{h.direccion}}</td>
 
-                           
                             </tr>
                         </tbody>
                     </table>
@@ -190,9 +187,6 @@
         <br>
     </div>
 </div>
-
-
-
 </template>
 
 <script>
@@ -259,7 +253,6 @@ export default {
                 this.Ordenes = this.filtrarPedidos(list, "Orden");
                 this.Envios = this.filtrarPedidos(list, "Envio");
                 this.Historial = this.filtrarPedidos(list, "Entregado");
-
 
             });
 
@@ -359,50 +352,3 @@ export default {
     },
 }
 </script>
-
-<style scoped>
-.btn_mini {
-    --bs-btn-padding-y: 0.25rem;
-    --bs-btn-padding-x: 0.5rem;
-    --bs-btn-font-size: 0.75rem;
-}
-
-table {
-    table-layout: fixed;
-    width: 100%;
-    border-collapse: collapse;
-
-}
-
-thead th:nth-child(1) {
-    width: 27%;
-}
-
-thead th:nth-child(2) {
-    width: 33%;
-}
-
-thead th:nth-child(3) {
-    width: 25%;
-}
-
-thead th:nth-child(4) {
-    width: 15%;
-}
-
-th,
-td {
-    padding: 20px;
-}
-
-.redondo {
-    display: block;
-    width: 30px;
-    height: 30px;
-    border-radius: 50% !important;
-    text-align: center;
-    padding: 1px;
-    cursor: pointer;
-    margin: 1px;
-}
-</style>
