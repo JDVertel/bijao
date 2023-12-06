@@ -32,26 +32,30 @@ export default {
 
             if (querySnapshot.empty) {
                 this.$router.push('/errorpage');
-                this.user= "";
-                this.passw= "";
-                    return null;
+                this.user = "";
+                this.passw = "";
+                return null;
 
             } else {
                 let user = querySnapshot.docs[0].data();
                 this.rol = querySnapshot.docs[0].data().rol
-                this.$router.push({
-                    path: '/login',
-                    query: {
-                        parametro: this.rol
-                    }
-                });
-                this.user= "";
-                this.passw= "";
-                    return user;
+                this.activaRol(this.rol);
+                this.$router.push('/login');
+
+                this.user = "";
+                this.passw = "";
+                return user;
 
             }
 
-        }
+        },
+
+        activaRol(Rol) {
+            this.$store.state.rol = Rol;
+            this.$store.dispatch("activaRol");
+
+        },
+
     }
 }
 

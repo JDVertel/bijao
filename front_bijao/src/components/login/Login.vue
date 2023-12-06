@@ -1,7 +1,9 @@
 <template>
 <div>
+<h1 class="display-6">Dashboard Appbijao</h1>
+<hr>
 
-    <div>
+<div>
 
         <div v-if="rol == 'gestor'">
             <Gestor />

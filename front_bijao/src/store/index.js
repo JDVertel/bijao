@@ -44,6 +44,7 @@ export default createStore({
       state.total = ''
 
     },
+    
     /*--------------------------------------------------------------------  */
     deleteItem(state, itemEdit) {
       const existeItem = state.carrito.find(
