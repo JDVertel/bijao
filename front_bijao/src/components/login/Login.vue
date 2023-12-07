@@ -1,30 +1,37 @@
 <template>
 <div>
-<h1 class="display-6">Dashboard <strong>{{ $store.state.rol_Ac }}</strong></h1>
-
-<hr>
-
-<div>
-
-        <div v-if="$store.state.rol_Ac == 'gestor'">
-            <Gestor />
+    <!-- v-if="$store.state.rol_Ac" -->
+    <div >
+        <h1 class="display-6">Dashboard <strong>{{ $store.state.rol_Ac }}</strong> </h1>
+        <hr>
+        <div>
+            <div v-if="$store.state.rol_Ac == 'gestor'">
+            
+            </div>
+                <Gestor />
+            <div v-if="$store.state.rol_Ac == 'tamalero'">
+                <Tamalero />
+            </div>
+            <div v-if="$store.state.rol_Ac == 'admin'">
+                <Admin />
+            </div>
         </div>
-
-        <div v-if="$store.state.rol_Ac == 'tamalero'">
-            <Tamalero />
-        </div>
-
-        <div v-if="$store.state.rol_Ac == 'admin'">
-            <Admin />
-        </div>
-
+        <hr>
+      <h1 class="display-6"> <RouterLink to="/"><i class="fa fa-home" aria-hidden="true"></i> Home</RouterLink></h1>
     </div>
+
+ <!--    <div class="center" v-else>
+        <RouterLink to="/">
+            <h1 class="display-6 text-center">Pagina no encontrada volver al menu inicio</h1>
+        </RouterLink>
+    </div>
+ -->
 </div>
 </template>
 
 <script>
 /* import store from "./../../store"; */
- 
+
 import bd from "./../../utils/firebase";
 import {
     getFirestore,
@@ -46,23 +53,6 @@ export default {
     }),
 
     methods: {
-
-        /*  async login(docu, psw) {
-
-            const q = query(collection(bd, "usuarios"), where("documento", "==", docu), where("passw", "==", psw), where("estado", "==", true));
-            const querySnapshot = await getDocs(q);
-
-            if (querySnapshot.empty) {
-
-                return null;
-            } else {
-                let user = querySnapshot.docs[0].data();
-
-                this.rol = querySnapshot.docs[0].data().rol
-                return user;
-            }
-
-        }, */
 
     },
 

@@ -99,6 +99,11 @@ export default {
                                 <RouterLink to="/registro"><i class="fa fa-user-circle" aria-hidden="true"></i> Registro</RouterLink>
                             </a>
                         </li>
+                            <li class="nav-item" data-bs-dismiss="offcanvas">
+                            <a class="nav-link" aria-current="page">
+                                <RouterLink to="/login"><i class="fa fa-user-circle" aria-hidden="true"></i> menu</RouterLink>
+                            </a>
+                        </li>
                     </ul>
                     <br>
                     <div class="card">
@@ -129,7 +134,7 @@ export default {
     <!--  -->
 
 </header>
-<div class="container appbijao">
+<div class="container-fluid appbijao">
     <RouterView />
 </div>
 </template>
@@ -138,6 +143,7 @@ export default {
 .appbijao {
     margin-top: 80px;
     padding: 0px !important;
+   
 
 }
 </style>
