@@ -50,9 +50,9 @@ export default {
 
         },
 
-        activaRol(Rol) {
-            this.$store.state.rol = Rol;
-            this.$store.dispatch("activaRol");
+        activaRol(Ac_Rol) {
+            this.$store.state.rol_Ac = Ac_Rol;
+            this.$store.dispatch("activaRolAction");
 
         },
 

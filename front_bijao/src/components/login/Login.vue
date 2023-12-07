@@ -1,19 +1,20 @@
 <template>
 <div>
-<h1 class="display-6">Dashboard Appbijao</h1>
+<h1 class="display-6">Dashboard <strong>{{ $store.state.rol_Ac }}</strong></h1>
+
 <hr>
 
 <div>
 
-        <div v-if="rol == 'gestor'">
+        <div v-if="$store.state.rol_Ac == 'gestor'">
             <Gestor />
         </div>
 
-        <div v-if="rol == 'tamalero'">
+        <div v-if="$store.state.rol_Ac == 'tamalero'">
             <Tamalero />
         </div>
 
-        <div v-if="rol == 'admin'">
+        <div v-if="$store.state.rol_Ac == 'admin'">
             <Admin />
         </div>
 
@@ -22,6 +23,8 @@
 </template>
 
 <script>
+/* import store from "./../../store"; */
+ 
 import bd from "./../../utils/firebase";
 import {
     getFirestore,

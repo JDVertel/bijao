@@ -71,9 +71,11 @@ export default createStore({
       );
     },
 
-    activaRol(rol) {
-      state.rol = rol
+    activaRol(state,rol) {
+      state.rol = rol;
     }
+/* 
+    watch(store.stare.rol) */
   },
 
   /* ---------------------------------------------------------------- */
@@ -90,8 +92,8 @@ export default createStore({
       store.commit('setVaciar')
       // console.log ("vaciando store");
     },
-    activaRol(rol) {
-      rol.commit('rolActive')
+    activaRolAction(rol_Act) {
+      rol_Act.commit('activaRol')
     }
 
   },
