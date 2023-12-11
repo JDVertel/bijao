@@ -1,14 +1,14 @@
 <template>
 <div>
     <!-- v-if="$store.state.rol_Ac" -->
-    <div >
+    <div>
         <h1 class="display-6">Dashboard <strong>{{ $store.state.rol_Ac }}</strong> </h1>
         <hr>
         <div>
             <div v-if="$store.state.rol_Ac == 'gestor'">
-            
+
             </div>
-                <Gestor />
+            <Gestor />
             <div v-if="$store.state.rol_Ac == 'tamalero'">
                 <Tamalero />
             </div>
@@ -17,10 +17,12 @@
             </div>
         </div>
         <hr>
-      <h1 class="display-6"> <RouterLink to="/"><i class="fa fa-home" aria-hidden="true"></i> Home</RouterLink></h1>
+        <h1 class="display-6">
+            <RouterLink to="/"><i class="fa fa-home" aria-hidden="true"></i> Home</RouterLink>
+        </h1>
     </div>
 
- <!--    <div class="center" v-else>
+    <!--    <div class="center" v-else>
         <RouterLink to="/">
             <h1 class="display-6 text-center">Pagina no encontrada volver al menu inicio</h1>
         </RouterLink>
@@ -30,16 +32,9 @@
 </template>
 
 <script>
-/* import store from "./../../store"; */
 
-import bd from "./../../utils/firebase";
-import {
-    getFirestore,
-    collection,
-    query,
-    where,
-    getDocs
-} from "firebase/firestore";
+
+
 
 import Swal from "sweetalert2";
 import Gestor from "./../u_gestor/Pedidos.vue";
@@ -50,11 +45,12 @@ export default {
         docu: "",
         psw: "",
         rol: "",
+        tamaleros: [],
+        tamales: []
+
     }),
 
-    methods: {
 
-    },
 
     components: {
         Gestor,
@@ -63,7 +59,7 @@ export default {
     },
     mounted() {
         this.rol = this.$route.query.parametro;
-        
+
     }
 }
 </script>

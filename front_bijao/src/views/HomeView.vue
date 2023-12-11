@@ -1,15 +1,12 @@
 <script>
 import vitrina from "./../components/vitrina/vitrina.vue";
-import {
-    funcion1,
-    funcion2,
-    usuariosbyRol
-} from "../components/funciones/f_bijao";
+
 
 export default {
 
     data: () => ({
-        data: [],
+        tamaleros: [],
+        alldata:[]
     }),
 
     components: {
@@ -26,16 +23,14 @@ export default {
             this.fechaActual = diaActual + '/' + mesActual + '/' + añoActual;
             /*  // console.log(diaActual + '/' + mesActual + '/' + añoActual); */
             /*             // console.log(this.fechaActual); */
-            funcion1();
-            funcion2();
-            this.data = usuariosbyRol("usuarios", "tamalero")
-console.log(this.data);
+           
         }
     },
 
     created() {
 
         this.diahoy()
+
 
     },
 };
@@ -91,7 +86,8 @@ console.log(this.data);
                         local impulsando desarrollando el FESTIVAL GASTRONOMICO Y
                         CULTURAL DEL TAMAL DEL MAGDALENA MEDIO.
                     </p>
-                    {{fechaActual }}
+       
+           
                 </div>
             </div>
         </div>

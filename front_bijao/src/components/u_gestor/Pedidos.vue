@@ -16,17 +16,18 @@
                         <div class="col-5">
                             <h5>Registrar Ventas</h5>
                             <div>
+
+
+
                                 <select class="form-select form-select-sm" aria-label="Small select example">
-                                    <option selected>Seleccione tamalero</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <option selected>tamalero</option>
+                                    <option v-for="item in this.tamaleros"  v-bind:key="item.id">{{item.nombres}}</option>
                                 </select>
+
                                 <select class="form-select form-select-sm" aria-label="Small select example">
-                                    <option selected>Seleccione tipo de tamal</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <option selected>tipo de tamal</option>
+                                    <option v-for="itemT in tamales" v-bind:key="itemT.id">{{itemT.nombre}}</option>
+                          
                                 </select>
                                 <input class="form-control form-control-sm" type="number" placeholder="Digite Cantidad" aria-label=".form-control-sm example">
                                 <button type="button" class="btn btn-primary btn-sm">+ Registrar</button>
@@ -49,8 +50,6 @@
                                         <td>Mark</td>
                                         <td>Otto</td>
 
-                                    
-                                    
                                     </tr>
                                     <tr>
                                         <th scope="row">2</th>
@@ -301,7 +300,10 @@
 </template>
 
 <script>
-
+import {
+    consultaXParametro,
+    leerTabla
+} from "./../funciones/f_bijao.js";
 import bd from "./../../utils/firebase";
 import {
     collection,
@@ -324,8 +326,18 @@ export default {
         Ordenes: [],
         Envios: [],
         eventovigente: '',
+        tamaleros:[],
+        tamales:[],
     }),
     methods: {
+
+        leerdatos() {
+
+         console.log("local" + consultaXParametro("usuarios", "rol", "tamalero"));
+
+          console.log(leerTabla("inventario"));
+
+        },
 
         eventosHoy() {
             const q = query(collection(bd, "eventos"), where("estado", "==", true));
@@ -456,12 +468,11 @@ export default {
 
         },
 
-
     },
     created() {
         this.eventosHoy();
-   
-
+        this.leerdatos();
     },
+
 }
 </script>

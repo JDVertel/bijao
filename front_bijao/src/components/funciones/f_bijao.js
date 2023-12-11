@@ -5,22 +5,18 @@ import {
   collection,
   query,
   where,
-  getDocs
+  getDocs,
+  onSnapshot,
 } from "firebase/firestore";
 
 
-export const funcion1 = () => console.log("corriendo script importado");
 
+/* consulta una tabla y compara con el nombre y valor de parametro */
 
-export const funcion2 = () => console.log("segunda funcion");
-
-
-
-
-
-export const usuariosbyRol = async (table, rol) => {
+export const consultaXParametro = async (table, param, value) => {
   const Ref = collection(bd, table);
-  const q = query(Ref, where("rol", "==", rol));
+  const q = query(Ref, where(param, "==", value));
+
   const querySnapshot = await getDocs(q);
   let list = [];
   querySnapshot.forEach((doc) => {
@@ -28,10 +24,46 @@ export const usuariosbyRol = async (table, rol) => {
       ...doc.data(),
       id: doc.id
     });
-  list;
+
   });
-/*   console.log(list) */
-return list
+  return list;
+}
 
-};
+/* consulta todos los elementos de una tabla*/
 
+export const leerTabla = (table) => {
+  const ColRef = collection(bd, table);
+  onSnapshot(ColRef, (snapshot) => {
+    let listU = [];
+    snapshot.docs.forEach((doc) => {
+      listU.push({
+        ...doc.data(),
+        id: doc.id
+      })
+
+
+    });
+
+    return listU;
+
+  });
+}
+
+/* 
+export const leerTabla = (table) => {
+  try {
+    const ColRef = collection(bd, table);
+    onSnapshot(ColRef, (snapshot) => {
+      let listU = [];
+      snapshot.docs.forEach((doc) => {
+        listU.push({
+          ...doc.data(),
+          id: doc.id
+        });
+      });
+      return listU;
+    });
+  } catch (error) {
+    console.error('Error al leer la tabla:', error);
+  }
+}; */
