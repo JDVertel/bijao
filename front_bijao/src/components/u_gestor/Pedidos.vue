@@ -14,33 +14,33 @@
                 <div class="accordion-body">
                     <div class="row">
                         <div class="col-5">
-                            <h4>Registrar Ventas</h4>
+                            <h5>Registrar Ventas</h5>
                             <div>
                                 <select class="form-select form-select-sm" aria-label="Small select example">
-                                    <option selected>Open this select menu</option>
+                                    <option selected>Seleccione tamalero</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
                                 </select>
                                 <select class="form-select form-select-sm" aria-label="Small select example">
-                                    <option selected>Open this select menu</option>
+                                    <option selected>Seleccione tipo de tamal</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
                                 </select>
-                                <input class="form-control form-control-sm" type="number" placeholder="Cantidad" aria-label=".form-control-sm example">
+                                <input class="form-control form-control-sm" type="number" placeholder="Digite Cantidad" aria-label=".form-control-sm example">
                                 <button type="button" class="btn btn-primary btn-sm">+ Registrar</button>
                             </div>
                         </div>
                         <div class="col-7">
-                            <h5>Conteo Actual</h5>
+                            <h5>Historial de registros </h5>
                             <table class="table table-sm">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">First</th>
-                                        <th scope="col">Last</th>
-                                        <th scope="col">Handle</th>
+                                        <th scope="col">Tamalero</th>
+                                        <th scope="col">Tipo tamal</th>
+                                        <th scope="col">cant</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -48,17 +48,19 @@
                                         <th scope="row">1</th>
                                         <td>Mark</td>
                                         <td>Otto</td>
-                                        <td>@mdo</td>
+
+                                    
+                                    
                                     </tr>
                                     <tr>
                                         <th scope="row">2</th>
                                         <td>Jacob</td>
                                         <td>Thornton</td>
-                                        <td>@fat</td>
+
                                     </tr>
                                     <tr>
                                         <th scope="row">3</th>
-                                        <td colspan="2">Larry the Bird</td>
+                                        <td>@twitter</td>
                                         <td>@twitter</td>
                                     </tr>
                                 </tbody>
@@ -67,14 +69,14 @@
                         </div>
                         <hr>
                         <div>
-                            <h5>Detalle de ventas</h5>
-                                <table class="table table-sm">
+                            <h5>Resumen de Ventas (123)</h5>
+                            <table class="table table-sm">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">First</th>
-                                        <th scope="col">Last</th>
-                                        <th scope="col">Handle</th>
+                                        <th scope="col">Tamalero</th>
+                                        <th scope="col">Tipo tamal</th>
+                                        <th scope="col">Cantidad</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -82,17 +84,17 @@
                                         <th scope="row">1</th>
                                         <td>Mark</td>
                                         <td>Otto</td>
-                                        <td>@mdo</td>
+
                                     </tr>
                                     <tr>
                                         <th scope="row">2</th>
                                         <td>Jacob</td>
                                         <td>Thornton</td>
-                                        <td>@fat</td>
+
                                     </tr>
                                     <tr>
                                         <th scope="row">3</th>
-                                        <td colspan="2">Larry the Bird</td>
+                                        <td>@mdo</td>
                                         <td>@twitter</td>
                                     </tr>
                                 </tbody>
@@ -299,6 +301,7 @@
 </template>
 
 <script>
+
 import bd from "./../../utils/firebase";
 import {
     collection,
@@ -452,11 +455,12 @@ export default {
             })
 
         },
-        /* funcion jodida */
+
 
     },
     created() {
         this.eventosHoy();
+   
 
     },
 }

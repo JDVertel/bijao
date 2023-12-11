@@ -63,7 +63,7 @@ export default {
     },
     mounted() {
         this.rol = this.$route.query.parametro;
-        console.log(this.$route.query.parametro);
+        
     }
 }
 </script>

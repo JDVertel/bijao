@@ -1,6 +1,17 @@
 <script>
 import vitrina from "./../components/vitrina/vitrina.vue";
+import {
+    funcion1,
+    funcion2,
+    usuariosbyRol
+} from "../components/funciones/f_bijao";
+
 export default {
+
+    data: () => ({
+        data: [],
+    }),
+
     components: {
         vitrina,
     },
@@ -15,19 +26,23 @@ export default {
             this.fechaActual = diaActual + '/' + mesActual + '/' + añoActual;
             /*  // console.log(diaActual + '/' + mesActual + '/' + añoActual); */
             /*             // console.log(this.fechaActual); */
+            funcion1();
+            funcion2();
+            this.data = usuariosbyRol("usuarios", "tamalero")
+console.log(this.data);
         }
     },
 
     created() {
 
         this.diahoy()
+
     },
 };
 </script>
 
 <template>
 <div>
-
 
     <div class="container applicacion">
         <div class="row">
@@ -172,15 +187,13 @@ export default {
                 </h2>
                 <div id="flush-collapseTwo" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushExample">
                     <div class="accordion-body carta">
-                   
-                        
-                            <!--  -->
-                         
-                                <vitrina />
-                         
 
-                            <!--  -->
-                            <hr />
+                        <!--  -->
+
+                        <vitrina />
+
+                        <!--  -->
+                        <hr />
 
                     </div>
                 </div>
