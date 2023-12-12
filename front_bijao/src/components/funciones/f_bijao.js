@@ -1,4 +1,3 @@
-
 import bd from "./../../utils/firebase.js";
 import {
   getFirestore,
@@ -11,59 +10,17 @@ import {
 
 
 
-/* consulta una tabla y compara con el nombre y valor de parametro */
-
-export const consultaXParametro = async (table, param, value) => {
-  const Ref = collection(bd, table);
-  const q = query(Ref, where(param, "==", value));
-
+export const ConsultaXparametro= async (tabla,variable,valor)=>{
+  const Ref = collection(bd, tabla);
+  const q = query(Ref, where(variable, "==",valor));
   const querySnapshot = await getDocs(q);
-  let list = [];
+  let responsearray = [];
   querySnapshot.forEach((doc) => {
-    list.push({
+    responsearray.push({
       ...doc.data(),
-      id: doc.id
+      id: doc.id,
     });
-
   });
-  return list;
+  /* console.log(responsearray); */
+  return responsearray;
 }
-
-/* consulta todos los elementos de una tabla*/
-
-export const leerTabla = (table) => {
-  const ColRef = collection(bd, table);
-  onSnapshot(ColRef, (snapshot) => {
-    let listU = [];
-    snapshot.docs.forEach((doc) => {
-      listU.push({
-        ...doc.data(),
-        id: doc.id
-      })
-
-
-    });
-
-    return listU;
-
-  });
-}
-
-/* 
-export const leerTabla = (table) => {
-  try {
-    const ColRef = collection(bd, table);
-    onSnapshot(ColRef, (snapshot) => {
-      let listU = [];
-      snapshot.docs.forEach((doc) => {
-        listU.push({
-          ...doc.data(),
-          id: doc.id
-        });
-      });
-      return listU;
-    });
-  } catch (error) {
-    console.error('Error al leer la tabla:', error);
-  }
-}; */
