@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 import bd from "./../../utils/firebase.js";
 import {
   getFirestore,
@@ -6,13 +7,14 @@ import {
   where,
   getDocs,
   onSnapshot,
+  addDoc,
 } from "firebase/firestore";
 
 
-
-export const ConsultaXparametro= async (tabla,variable,valor)=>{
+/*consulta filtrada por 1 parametro -------------------------------------------------------------------------*/
+export const ConsultaXparametro = async (tabla, variable, valor) => {
   const Ref = collection(bd, tabla);
-  const q = query(Ref, where(variable, "==",valor));
+  const q = query(Ref, where(variable, "==", valor));
   const querySnapshot = await getDocs(q);
   let responsearray = [];
   querySnapshot.forEach((doc) => {
@@ -24,3 +26,49 @@ export const ConsultaXparametro= async (tabla,variable,valor)=>{
   /* console.log(responsearray); */
   return responsearray;
 }
+
+/*consulta de todos los datos de una tabla ------------------------------------------------------------------- */
+
+
+export const LeerRegistros = (tabla) => {
+
+  const CRef = collection(bd, tabla);
+
+  onSnapshot(CRef, (snapshot) => {
+    let listC = [];
+    snapshot.docs.forEach((doc) => {
+      listC.push({
+        ...doc.data(),
+        id: doc.id
+      });
+
+    });
+    console.log(listC);
+    return listC;
+
+  });
+}
+
+
+
+
+
+/*guardar datos en una tabla ----------------------------------------------------------------------------------*/
+
+export const guardarRegistro = async (tabla, datos) => {
+
+  const ColRef = collection(bd, tabla);
+
+  const docRef = await addDoc(ColRef, datos);
+  /*   //   // console.log("item agregado", docRef.id); */
+  Swal.fire({
+    title: "¡Enviado!",
+    text: "El item creado correctamente.",
+    icon: "success",
+  }).then(() => {
+    /* this.$refs.productForm.reset(); */
+
+  });
+
+}
+

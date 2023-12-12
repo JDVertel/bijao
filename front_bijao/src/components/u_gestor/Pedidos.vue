@@ -18,21 +18,21 @@
                         <div class="col-5">
                             <h5>Registrar Ventas</h5>
                             <div>
-                                <select class="form-select form-select-sm" aria-label="Small select example">
-                                    <option selected>tamalero</option>
-                                    <option v-for="item in this.tamaleros" v-bind:key="item.id">
+                                <select class="form-select form-select-sm" aria-label="Small select example" v-model="tamalero">
+                                    <option value="0">tamalero</option>
+                                    <option v-for="item in this.tamaleros" v-bind:key="item.id" :value="item.nombres">
                                         {{ item.nombres }}
                                     </option>
                                 </select>
 
-                                <select class="form-select form-select-sm" aria-label="Small select example">
-                                    <option selected>tipo de tamal</option>
-                                    <option v-for="itemT in tamales" v-bind:key="itemT.id">
+                                <select class="form-select form-select-sm" aria-label="Small select example" v-model="Ttamal">
+                                    <option value="0">tipo de tamal</option>
+                                    <option v-for="itemT in tamales" v-bind:key="itemT.id" :value="itemT.nombre">
                                         {{ itemT.nombre }}
                                     </option>
                                 </select>
-                                <input class="form-control form-control-sm" type="number" placeholder="Digite Cantidad" aria-label=".form-control-sm example" />
-                                <button type="button" class="btn btn-primary btn-sm" @click="leerdatos()">
+                                <input class="form-control form-control-sm" type="number" placeholder="Digite Cantidad" aria-label=".form-control-sm example" v-model="cant" />
+                                <button type="button" class="btn btn-primary btn-sm" @click="guardarVenta()">
                                     + Registrar
                                 </button>
                             </div>
@@ -299,7 +299,9 @@
 
 <script>
 import {
-    ConsultaXparametro
+    ConsultaXparametro,
+    LeerRegistros,
+    guardarRegistro
 } from "./../funciones/f_bijao.js";
 import bd from "./../../utils/firebase";
 import {
@@ -312,6 +314,7 @@ import {
     query,
     where,
     getDocs,
+  
 } from "firebase/firestore";
 import Swal from "sweetalert2";
 export default {
@@ -325,20 +328,40 @@ export default {
         eventovigente: "",
         tamaleros: [],
         tamales: [],
+        registros: [],
+        /*  */
+        tamalero: "0",
+        Ttamal: "0",
+        cant: "",
+   
     }),
     methods: {
         leerdatos() {
             console.log(this.eventoAct);
-            ConsultaXparametro("inventario", "evento", this.eventoAct).then((result) => {
-                this.tamales = result;
-            });
+
             ConsultaXparametro("usuarios", "rol", "tamalero").then((result) => {
                 this.tamaleros = result;
+                ConsultaXparametro("inventario", "evento", this.eventoAct).then((result) => {
+                    this.tamales = result;
+                });
+
             });
 
-            console.log("ejecutando");
-            console.log(this.tamaleros);
-            console.log(this.tamales);
+            this.registros = LeerRegistros("registros")
+            console.log("ejecutando================================");
+            console.log( this.registros);
+
+        },
+
+        guardarVenta() {
+
+         const dataObj = {
+                evento: this.eventoAct,
+                producto: this.Ttamal,
+                tamalero: this.tamalero,
+                cantidad: this.cant,
+            };
+            guardarRegistro("registros", dataObj)
         },
 
         eventosHoy() {
@@ -460,5 +483,6 @@ export default {
         this.eventosHoy();
         this.leerdatos();
     },
+
 }
 </script>
