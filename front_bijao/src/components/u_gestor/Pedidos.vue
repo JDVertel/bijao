@@ -37,64 +37,65 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="col-7">
+                        <div class="col-7" style="padding: 0px;">
                             <h5>Historial de registros</h5>
-                            <table class="table table-sm">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Tamalero</th>
-                                        <th scope="col">Tipo tamal</th>
-                                        <th scope="col">cant</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>@twitter</td>
-                                        <td>@twitter</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+
+                            <div class="container scroll">
+                                <table class="table table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Cant</th>
+                                            <th scope="col">tamalero</th>
+                                            <th scope="col">Tipo tamal</th>
+                                            <th>X</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="reg in this.registros" v-bind:key="reg.id">
+                                            <th scope="row">{{ reg.cantidad }}</th>
+                                            <td>{{ reg.tamalero }}</td>
+                                            <td>{{ reg.producto }}</td>
+                                            <td>  <button type="button" class="btn btn-danger btn-sm redondo" @click="Deleteitem(reg.id)">
+                                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                                    </button></td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+
                         </div>
                         <hr />
                         <div>
                             <h5>Resumen de Ventas (123)</h5>
-                            <table class="table table-sm">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Tamalero</th>
-                                        <th scope="col">Tipo tamal</th>
-                                        <th scope="col">Cantidad</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>@mdo</td>
-                                        <td>@twitter</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+
+                            <div class="col" v-for="(tipos, tamalero) in registrosAgrupados" :key="tamalero">
+                                <table class="table table-sm table-striped-columns">
+                                    <thead>
+                                        <tr>
+
+                                            <th>Subtotal</th>
+                                            <th>Tamalero</th>
+                                            <th>Tipotamal</th>
+
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr v-for="(subtotal, tipotamal) in tipos" :key="tipotamal">
+
+                                            <td>{{ subtotal }}</td>
+                                            <td>{{ tamalero }}</td>
+                                            <td>{{ tipotamal }}</td>
+                                        </tr>
+
+                                        <h5>Total</h5>
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -314,7 +315,7 @@ import {
     query,
     where,
     getDocs,
-  
+
 } from "firebase/firestore";
 import Swal from "sweetalert2";
 export default {
@@ -333,7 +334,7 @@ export default {
         tamalero: "0",
         Ttamal: "0",
         cant: "",
-   
+        registrosAgrupados: "",
     }),
     methods: {
         leerdatos() {
@@ -341,27 +342,57 @@ export default {
 
             ConsultaXparametro("usuarios", "rol", "tamalero").then((result) => {
                 this.tamaleros = result;
+
                 ConsultaXparametro("inventario", "evento", this.eventoAct).then((result) => {
                     this.tamales = result;
                 });
-
+                this.recargatabla();
             });
-
-            this.registros = LeerRegistros("registros")
-            console.log("ejecutando================================");
-            console.log( this.registros);
 
         },
 
+        recargatabla() {
+
+            LeerRegistros("registros").then((registros) => {
+                this.registros = registros;
+                this.Resumen();
+            });
+
+        },
+        vaciacampos() {
+            /* this.tamalero = "0"; */
+            this.Ttamal = "0";
+            this.cant = "";
+        },
+        Resumen() {
+            /* inicio */
+            const agrupado = this.registros.reduce((resultado, registro) => {
+                if (!resultado[registro.tamalero]) {
+                    resultado[registro.tamalero] = {};
+                }
+                if (!resultado[registro.tamalero][registro.producto]) {
+                    resultado[registro.tamalero][registro.producto] = 0;
+                }
+                resultado[registro.tamalero][registro.producto] += registro.cantidad;
+                return resultado;
+            }, {});
+
+            // Renderizar la tabla en Vue.js
+            this.registrosAgrupados = agrupado
+            /* fin */
+        },
         guardarVenta() {
 
-         const dataObj = {
+            const dataObj = {
                 evento: this.eventoAct,
                 producto: this.Ttamal,
                 tamalero: this.tamalero,
                 cantidad: this.cant,
             };
-            guardarRegistro("registros", dataObj)
+
+            guardarRegistro("registros", dataObj);
+            this.recargatabla();
+            this.vaciacampos();
         },
 
         eventosHoy() {

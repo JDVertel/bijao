@@ -9,7 +9,7 @@ import {
   onSnapshot,
   addDoc,
 } from "firebase/firestore";
-
+const registrosRta= [];
 
 /*consulta filtrada por 1 parametro -------------------------------------------------------------------------*/
 export const ConsultaXparametro = async (tabla, variable, valor) => {
@@ -31,31 +31,36 @@ export const ConsultaXparametro = async (tabla, variable, valor) => {
 
 
 export const LeerRegistros = (tabla) => {
-
   const CRef = collection(bd, tabla);
-
-  onSnapshot(CRef, (snapshot) => {
-    let listC = [];
-    snapshot.docs.forEach((doc) => {
-      listC.push({
-        ...doc.data(),
-        id: doc.id
+  return new Promise((resolve, reject) => {
+    onSnapshot(CRef, (snapshot) => {
+      let listC = [];
+      snapshot.docs.forEach((doc) => {
+        listC.push({
+          ...doc.data(),
+          id: doc.id
+        });
       });
-
+   /*    console.log(listC); */
+      resolve(listC);
+    }, (error) => {
+      reject(error);
     });
-    console.log(listC);
-    return listC;
-
   });
 }
-
-
-
 
 
 /*guardar datos en una tabla ----------------------------------------------------------------------------------*/
 
 export const guardarRegistro = async (tabla, datos) => {
+
+
+  /*     const dataObj = {
+                evento: this.eventoAct,
+                producto: this.Ttamal,
+                tamalero: this.tamalero,
+                cantidad: this.cant,
+            }; */
 
   const ColRef = collection(bd, tabla);
 
