@@ -4,7 +4,6 @@
         <i class="fa fa-cart-arrow-down" aria-hidden="true"></i> Gestor de Pedidos
     </h6>
     <!--  -->
-
     <div class="accordion" id="accordionExample">
         <div class="accordion-item">
             <h2 class="accordion-header">
@@ -14,10 +13,11 @@
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                    <div class="row">
-                        <div class="col-5">
+                    <div class="row" style="margin: 1px;">
+                        <div class="col-12">
                             <h5>Registrar Ventas</h5>
-                            <div>
+                            <div class="row">
+
                                 <select class="form-select form-select-sm" aria-label="Small select example" v-model="tamalero">
                                     <option value="0">tamalero</option>
                                     <option v-for="item in this.tamaleros" v-bind:key="item.id" :value="item.nombres">
@@ -32,36 +32,46 @@
                                     </option>
                                 </select>
                                 <input class="form-control form-control-sm" type="number" placeholder="Digite Cantidad" aria-label=".form-control-sm example" v-model="cant" />
-                                <button type="button" class="btn btn-primary btn-sm" @click="guardarVenta()">
+                                <button type="button" class="btn btn-primary btn-sm" @click="guardarVenta()" v-if="(this.cant!='' & this.Ttamal!='0' & this.tamalero !='0')">
                                     + Registrar
                                 </button>
                             </div>
                         </div>
-                        <div class="col-7" style="padding: 0px;">
-                            <h5>Historial de registros</h5>
+                        <div class="col-12">
 
-                            <div class="container scroll">
-                                <table class="table table-sm">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Cant</th>
-                                            <th scope="col">tamalero</th>
-                                            <th scope="col">Tipo tamal</th>
-                                            <th>X</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr v-for="reg in this.registros" v-bind:key="reg.id">
-                                            <th scope="row">{{ reg.cantidad }}</th>
-                                            <td>{{ reg.tamalero }}</td>
-                                            <td>{{ reg.producto }}</td>
-                                            <td>  <button type="button" class="btn btn-danger btn-sm redondo" @click="Deleteitem(reg.id)">
-                                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                                    </button></td>
-                                        </tr>
+                            <button class="btn btn-success btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+                                Historial de registros
+                            </button>
 
-                                    </tbody>
-                                </table>
+                            <div>
+                                <div class="collapse collapse-horizontal" id="collapseWidthExample">
+                                    <div class="card card-body" style="padding: 1px;">
+
+                                        <div class="container scroll">
+                                            <table class="table table-sm">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Cant</th>
+                                                        <th scope="col">tamalero</th>
+                                                        <th scope="col">Tipo tamal</th>
+                                                        <th>Eliminar</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr v-for="reg in this.registros" v-bind:key="reg.id">
+                                                        <th scope="row">{{ reg.cantidad }}</th>
+                                                        <td>{{ reg.tamalero }}</td>
+                                                        <td>{{ reg.producto }}</td>
+                                                        <td> <button type="button" class="btn btn-danger btn-sm redondo" @click="Deleteitem(reg.id)">
+                                                                <i class="fa fa-times" aria-hidden="true"></i>
+                                                            </button></td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                         </div>
@@ -75,8 +85,8 @@
                                         <tr>
 
                                             <th>Subtotal</th>
-                                            <th>Tamalero</th>
                                             <th>Tipotamal</th>
+                                            <th>Tamalero</th>
 
                                         </tr>
                                     </thead>
@@ -85,8 +95,9 @@
                                         <tr v-for="(subtotal, tipotamal) in tipos" :key="tipotamal">
 
                                             <td>{{ subtotal }}</td>
-                                            <td>{{ tamalero }}</td>
                                             <td>{{ tipotamal }}</td>
+                                            <td>{{ tamalero }}</td>
+
                                         </tr>
 
                                         <h5>Total</h5>
@@ -302,7 +313,8 @@
 import {
     ConsultaXparametro,
     LeerRegistros,
-    guardarRegistro
+    guardarRegistro,
+
 } from "./../funciones/f_bijao.js";
 import bd from "./../../utils/firebase";
 import {
@@ -318,6 +330,9 @@ import {
 
 } from "firebase/firestore";
 import Swal from "sweetalert2";
+import {
+    getTransitionRawChildren
+} from "vue";
 export default {
     data: () => ({
         eventoAct: [],
@@ -334,7 +349,13 @@ export default {
         tamalero: "0",
         Ttamal: "0",
         cant: "",
+        valotT: "",
         registrosAgrupados: "",
+        detalletamal: [],
+        Dnombre: "xx",
+        Dprecio: "xx",
+        dataObj: [],
+
     }),
     methods: {
         leerdatos() {
@@ -353,17 +374,13 @@ export default {
 
         recargatabla() {
 
-          /*   LeerRegistros("registros").then((registros) => {
-                this.registros = registros;
-                this.Resumen();
-            });
- */
-            ConsultaXparametro("registros","evento",this.eventoAct).then((registros) => {
+            ConsultaXparametro("registros", "evento", this.eventoAct).then((registros) => {
                 this.registros = registros;
                 this.Resumen();
             });
 
         },
+
         vaciacampos() {
             /* this.tamalero = "0"; */
             this.Ttamal = "0";
@@ -386,19 +403,34 @@ export default {
             this.registrosAgrupados = agrupado
             /* fin */
         },
+
+        /* -------------------------------------------------- */
         guardarVenta() {
 
-            const dataObj = {
-                evento: this.eventoAct,
-                producto: this.Ttamal,
-                tamalero: this.tamalero,
-                cantidad: this.cant,
-            };
+            ConsultaXparametro("productos", "nombre", this.Ttamal).then((registros) => {
+                this.detalletamal = registros;
+           
+                    this.Dnombre = this.detalletamal[0].nombre;
+                this.Dprecio = this.detalletamal[0].precio;
+           
 
-            guardarRegistro("registros", dataObj);
-            this.recargatabla();
-            this.vaciacampos();
+                this.dataObj = {
+                    evento: this.eventoAct,
+                    producto: this.Dnombre,
+                    precio: this.Dprecio,
+                    tamalero: this.tamalero,
+                    cantidad: this.cant,
+
+                };
+                guardarRegistro("registros", this.dataObj);
+                this.recargatabla();
+                this.vaciacampos();
+                this.Resumen();
+
+            });
+
         },
+        /* ----------------------------------------------------- */
 
         eventosHoy() {
             const q = query(collection(bd, "eventos"), where("estado", "==", true));

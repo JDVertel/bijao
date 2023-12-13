@@ -23,7 +23,7 @@ export const ConsultaXparametro = async (tabla, variable, valor) => {
       id: doc.id,
     });
   });
-  /* console.log(responsearray); */
+/*   console.log(responsearray); */
   return responsearray;
 }
 
@@ -41,7 +41,7 @@ export const LeerRegistros = (tabla) => {
           id: doc.id
         });
       });
-   /*    console.log(listC); */
+     /*  console.log(listC); */
       resolve(listC);
     }, (error) => {
       reject(error);
