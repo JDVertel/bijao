@@ -40,7 +40,7 @@ export default {
                 let user = querySnapshot.docs[0].data();
                 this.rol = querySnapshot.docs[0].data().rol
                 this.activaRol(this.rol);
-                this.$router.push('/login');
+                this.$router.push('/menu');
 
                 this.user = "";
                 this.passw = "";
@@ -99,9 +99,9 @@ export default {
                                 <RouterLink to="/registro"><i class="fa fa-user-circle" aria-hidden="true"></i> Registro</RouterLink>
                             </a>
                         </li>
-                            <li class="nav-item" data-bs-dismiss="offcanvas">
+                             <li class="nav-item" data-bs-dismiss="offcanvas">
                             <a class="nav-link" aria-current="page">
-                                <RouterLink to="/login"><i class="fa fa-user-circle" aria-hidden="true"></i> menu</RouterLink>
+                                <RouterLink to="/menu"><i class="fa fa-user-circle" aria-hidden="true"></i> menu</RouterLink>
                             </a>
                         </li>
                     </ul>
@@ -143,7 +143,6 @@ export default {
 .appbijao {
     margin-top: 80px;
     padding: 0px !important;
-   
 
 }
 </style>

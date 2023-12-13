@@ -15,7 +15,7 @@ import contenidos from "../components/u_admin/Contenido.vue";
 import parametros from "../components/u_admin/Parametros.vue";
 import tamalero from "../components/u_tamaleros/TamaleroHome.vue";
 import pedidos from "../components/u_gestor/Pedidos.vue";
-import login from "../components/login/Login.vue";
+import menu from "../components/menu/index.vue";
 
 
 
@@ -36,9 +36,9 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue')
     }, */
     {
-      path: "/login",
-      name: "login",
-      component: login,
+      path: "/menu",
+      name: "menu",
+      component: menu,
     },
     {
       path: "/acercade",

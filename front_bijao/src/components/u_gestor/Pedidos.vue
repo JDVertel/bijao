@@ -353,7 +353,12 @@ export default {
 
         recargatabla() {
 
-            LeerRegistros("registros").then((registros) => {
+          /*   LeerRegistros("registros").then((registros) => {
+                this.registros = registros;
+                this.Resumen();
+            });
+ */
+            ConsultaXparametro("registros","evento",this.eventoAct).then((registros) => {
                 this.registros = registros;
                 this.Resumen();
             });
