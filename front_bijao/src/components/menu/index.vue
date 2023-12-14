@@ -6,9 +6,9 @@
         <hr>
         <div>
             <div v-if="$store.state.rol_Ac == 'gestor'">
-        
+                <Gestor />
             </div>
-            <Gestor />
+          
             <div v-if="$store.state.rol_Ac == 'tamalero'">
                 <Tamalero />
             </div>

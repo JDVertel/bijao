@@ -115,16 +115,16 @@ export default {
                                             <RouterLink to="/acercade"><i class="fa fa-info-circle" aria-hidden="true"></i> Acerca de AppBijao</RouterLink>
                                         </a>
                                     </li>
-                                    <li class="nav-item" data-bs-dismiss="offcanvas">
+                                    <!--  <li class="nav-item" data-bs-dismiss="offcanvas">
                                         <a class="nav-link" aria-current="page">
                                             <RouterLink to="/registro"><i class="fa fa-user-circle" aria-hidden="true"></i> Registro</RouterLink>
                                         </a>
                                     </li>
-                                    <li class="nav-item" data-bs-dismiss="offcanvas">
+                                   <li class="nav-item" data-bs-dismiss="offcanvas">
                                         <a class="nav-link" aria-current="page">
                                             <RouterLink to="/menu"><i class="fa fa-user-circle" aria-hidden="true"></i> menu</RouterLink>
                                         </a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </div>
 

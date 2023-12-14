@@ -214,7 +214,7 @@
                                 <thead>
                                     <tr>
                                         <th>Nombres</th>
-                                        <th>Celular</th>
+                                        <th>Documento</th>
                                         <th>Rol</th>
                                         <th>Estado</th>
                                         <th>Opciones</th>
@@ -223,7 +223,7 @@
                                 <tbody>
                                     <tr v-for="users in listUser" v-bind:key="users.id">
                                         <td>{{ users.nombres }}</td>
-                                        <td>{{ users.celular }}</td>
+                                        <td>{{ users.documento }}</td>
                                         <td>{{ users.rol}} </td>
                                         <td>
 
@@ -280,7 +280,7 @@
                                         <button v-if="username != '' &&
                                                 userpassw2 == userpassw1 &&
                                                 userpassw1 != ''
-                                                " type="button" :disabled="btnNewuser" class="btn btn-primary btn-sm" id="btn_guardar" @click="crearUsuarios()">
+                                                " type="button" class="btn btn-primary btn-sm" id="btn_guardar" @click="crearUsuarios()">
                                             <i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar
                                         </button>
                                     </div>
@@ -738,7 +738,7 @@ export default {
                 text: "Usuario creado correctamente.",
                 icon: "success",
             }).then(() => {
-                this.$refs.productForm.reset();
+                
                 this.username = "";
                 this.userdoc = "";
                 this.usercel = "";

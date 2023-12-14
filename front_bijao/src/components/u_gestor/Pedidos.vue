@@ -40,7 +40,7 @@
                         <div class="col-12">
 
                             <button class="btn btn-success btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
-                                Historial de registros
+                                Historial de registros de ventas
                             </button>
 
                             <div>
@@ -77,7 +77,7 @@
                         </div>
                         <hr />
                         <div>
-                            <h5>Resumen de Ventas (123)</h5>
+                            <h5>Resumen de Ventas</h5>
 
                             <div class="col" v-for="(tipos, tamalero) in registrosAgrupados" :key="tamalero">
                                 <table class="table table-sm table-striped-columns">
@@ -87,7 +87,7 @@
                                             <th>Subtotal</th>
                                             <th>Tipotamal</th>
                                             <th>Tamalero</th>
-
+                                            
                                         </tr>
                                     </thead>
 
@@ -97,6 +97,7 @@
                                             <td>{{ subtotal }}</td>
                                             <td>{{ tipotamal }}</td>
                                             <td>{{ tamalero }}</td>
+                                         
 
                                         </tr>
 
@@ -396,7 +397,7 @@ export default {
                     resultado[registro.tamalero][registro.producto] = 0;
                 }
                 resultado[registro.tamalero][registro.producto] += registro.cantidad;
-                return resultado;
+                         return resultado ;
             }, {});
 
             // Renderizar la tabla en Vue.js
@@ -409,10 +410,9 @@ export default {
 
             ConsultaXparametro("productos", "nombre", this.Ttamal).then((registros) => {
                 this.detalletamal = registros;
-           
-                    this.Dnombre = this.detalletamal[0].nombre;
+
+                this.Dnombre = this.detalletamal[0].nombre;
                 this.Dprecio = this.detalletamal[0].precio;
-           
 
                 this.dataObj = {
                     evento: this.eventoAct,

@@ -1,12 +1,11 @@
 <script>
 import vitrina from "./../components/vitrina/vitrina.vue";
 
-
 export default {
 
     data: () => ({
         tamaleros: [],
-        alldata:[]
+        alldata: []
     }),
 
     components: {
@@ -23,14 +22,13 @@ export default {
             this.fechaActual = diaActual + '/' + mesActual + '/' + añoActual;
             /*  // console.log(diaActual + '/' + mesActual + '/' + añoActual); */
             /*             // console.log(this.fechaActual); */
-           
+
         }
     },
 
     created() {
 
         this.diahoy()
-
 
     },
 };
@@ -86,8 +84,7 @@ export default {
                         local impulsando desarrollando el FESTIVAL GASTRONOMICO Y
                         CULTURAL DEL TAMAL DEL MAGDALENA MEDIO.
                     </p>
-       
-           
+
                 </div>
             </div>
         </div>
@@ -175,6 +172,21 @@ export default {
                     </div>
                 </div>
             </div>
+      <!--       <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse3" aria-expanded="false" aria-controls="flush-collapse3">
+                        Pedido
+                    </button>
+                </h2>
+                <div id="flush-collapse3" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body carta">
+
+                        <hr />
+
+                    </div>
+                </div>
+            </div> -->
+
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
