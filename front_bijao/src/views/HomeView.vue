@@ -5,7 +5,9 @@ export default {
 
     data: () => ({
         tamaleros: [],
-        alldata: []
+        alldata: [],
+ 
+ 
     }),
 
     components: {
@@ -23,15 +25,17 @@ export default {
             /*  // console.log(diaActual + '/' + mesActual + '/' + añoActual); */
             /*             // console.log(this.fechaActual); */
 
-        }
+        },
+
+
     },
 
     created() {
-
         this.diahoy()
+     
+    }
 
-    },
-};
+}
 </script>
 
 <template>
@@ -40,7 +44,7 @@ export default {
     <div class="container applicacion">
         <div class="row">
             <div class="col-12 col-md-6 central">
-                <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img src="@/components/images/slide1.png" class="d-block w-100 carrusel" alt="..." />
@@ -74,6 +78,8 @@ export default {
                     </button>
                 </div>
 
+          
+                <!-- fin galeria -->
                 <br />
             </div>
             <div class="col-12 col-md-6 centrado">
@@ -92,7 +98,7 @@ export default {
     <br>
 
     <div class="card text-center transparente">
-        <!--  -->
+
         <div class="accordion accordion-flush" id="accordionFlushExample">
             <div class="accordion-item">
                 <h2 class="accordion-header">
@@ -172,7 +178,7 @@ export default {
                     </div>
                 </div>
             </div>
-      <!--       <div class="accordion-item">
+            <!--       <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse3" aria-expanded="false" aria-controls="flush-collapse3">
                         Pedido

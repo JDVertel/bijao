@@ -31,7 +31,7 @@
                         <div class="col-6">
                             <p class="card-price">${{ producto.precio }}</p>
                         </div>
-                        <div class="col-6" style="padding:0px"><button class="btn btn-success btn-sm redondo " @click="addItem(producto)">
+                        <div class="col-6" style="padding:0px"><button class="btn btn-danger btn-sm redondo " @click="addItem(producto)">
                                 <i class="fa fa-cart-plus" aria-hidden="true"></i>
                             </button></div>
                     </div>
